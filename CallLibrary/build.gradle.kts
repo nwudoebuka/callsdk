@@ -52,8 +52,9 @@ afterEvaluate {
                 from(components["release"])
 
                 groupId = "com.github.nwudoebuka"
-                artifactId = "callsdk"
+                artifactId = "CallLibrary"
                 version = "0.1-alpha"
+                artifact("$buildDir/outputs/aar/CallLibrary-release.aar")
             }
         }
     }
