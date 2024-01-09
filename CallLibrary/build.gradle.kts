@@ -35,28 +35,40 @@ android {
     }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("bar") {
-            groupId = "com.app24"
-            artifactId = "callsdk"
-            version = "0.1-alpha"
-            artifact("$buildDir/outputs/aar/CallLibrary-release.aar")
-        }
-    }
-}
+//publishing {
+//    publications {
+//        create<MavenPublication>("bar") {
+//            groupId = "com.app24"
+//            artifactId = "callsdk"
+//            version = "0.1-alpha"
+//            artifact("$buildDir/outputs/aar/CallLibrary-release.aar")
+//        }
+//    }
+//}
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
 
-repositories {
-    google()
-    mavenCentral()
-    maven("GithubPackages") {
-        url = uri("https://maven.pkg.github.com/nwudoebuka/callsdk")
-        credentials {
-            username = "nwudoebuka" // replace with environment variables System.getenv(GITHUB_USERNAME)
-            password = "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" // replace with environment variables System.getenv(GITHUB_PASSWORD)
+                groupId = "com.github.nwudoebuka"
+                artifactId = "callsdk"
+                version = "0.1-alpha"
+            }
         }
     }
 }
+//repositories {
+//    google()
+//    mavenCentral()
+//    maven("GithubPackages") {
+//        url = uri("https://maven.pkg.github.com/nwudoebuka/callsdk")
+//        credentials {
+//            username = "nwudoebuka" // replace with environment variables System.getenv(GITHUB_USERNAME)
+//            password = "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" // replace with environment variables System.getenv(GITHUB_PASSWORD)
+//        }
+//    }
+//}
 
 dependencies {
 
