@@ -51,8 +51,8 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
 
-                groupId = "com.nwudoebuka"
-                artifactId = "CallLibrary"
+                groupId = "com.github.nwudoebuka"
+                artifactId = "callsdk"
                 version = "0.1-alpha"
 //                artifact("$buildDir/outputs/aar/CallLibrary-release.aar")
             }
