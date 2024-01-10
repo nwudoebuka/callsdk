@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.app24.calllibrary"
+    namespace = "com.app24.callsdk"
     compileSdk = 34
 
     defaultConfig {

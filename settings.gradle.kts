@@ -17,3 +17,4 @@ pluginManagement {
 rootProject.name = "CallSDK"
 include(":app")
 include(":CallLibrary")
+include(":callsdk")
