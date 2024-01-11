@@ -48,23 +48,40 @@ android {
 //        }
 //    }
 //}
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
 
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
                 groupId = "com.github.nwudoebuka"
                 artifactId = "callsdk"
                 version = "0.1-alpha"
                 pom {
                     description = "First release"
                 }
-//                artifact("$buildDir/outputs/aar/CallLibrary-release.aar")
-            }
         }
     }
+    repositories {
+        mavenLocal()
+    }
 }
+
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            create<MavenPublication>("release") {
+//                from(components["release"])
+//
+//                groupId = "com.github.nwudoebuka"
+//                artifactId = "callsdk"
+//                version = "0.1-alpha"
+//                pom {
+//                    description = "First release"
+//                }
+////                artifact("$buildDir/outputs/aar/CallLibrary-release.aar")
+//            }
+//        }
+//    }
+//}
 repositories {
     google()
     mavenCentral()
