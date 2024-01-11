@@ -3,6 +3,9 @@ import org.gradle.api.publish.maven.MavenPublication
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+//    id("android-maven")
+//    id("kotlin-android")
+//    id("kotlin-android-extensions")
     id("maven-publish")
 }
 
@@ -54,6 +57,9 @@ afterEvaluate {
                 groupId = "com.github.nwudoebuka"
                 artifactId = "callsdk"
                 version = "0.1-alpha"
+                pom {
+                    description = "First release"
+                }
 //                artifact("$buildDir/outputs/aar/CallLibrary-release.aar")
             }
         }
@@ -62,7 +68,21 @@ afterEvaluate {
 repositories {
     google()
     mavenCentral()
+    mavenLocal()
 }
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)        // << --- ADD This
+    }
+}
+//===============================
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17            // << --- ADD This
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
 
 dependencies {
 
